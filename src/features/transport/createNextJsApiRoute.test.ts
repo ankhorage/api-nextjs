@@ -97,10 +97,7 @@ describe("createNextJsApiRoute", () => {
   });
 
   test("returns HTTP 400 for malformed JSON bodies", async () => {
-    const handler = createNextJsApiRoute(
-      ACTION_RUNTIME,
-      "dependency-graph",
-    );
+    const handler = createNextJsApiRoute(ACTION_RUNTIME, "dependency-graph");
     const response = await handler(
       new Request("https://example.test/api/dependency-graph", {
         method: "POST",
