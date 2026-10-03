@@ -1,0 +1,52 @@
+{
+  "name": "@ankhorage/api-nextjs",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Next.js App Router transport adapter for the Ankhorage API runtime.",
+  "license": "MIT",
+  "repository": {"type": "git", "url": "git+https://github.com/ankhorage/api-nextjs.git"},
+  "homepage": "https://github.com/ankhorage/api-nextjs#readme",
+  "bugs": {"url": "https://github.com/ankhorage/api-nextjs/issues"},
+  "keywords": ["ankhorage","api","adapter","app-router","nextjs","ports-and-adapters","rest","typescript"],
+  "sideEffects": false,
+  "files": ["dist","README.md","CHANGELOG.md","LICENSE"],
+  "exports": {
+    ".": {"types": "./dist/apiNextJs.d.ts", "import": "./dist/apiNextJs.js"},
+    "./package.json": "./package.json"
+  },
+  "publishConfig": {"access": "public"},
+  "engines": {"node": ">=24"},
+  "scripts": {
+    "build": "rm -rf dist tsconfig.tsbuildinfo && bun x tsc -p tsconfig.build.json",
+    "changeset": "ankhorage-changeset",
+    "changeset:status": "ankhorage-changeset status --since=origin/main",
+    "docs": "paradox",
+    "format": "ankhorage-prettier --write .",
+    "format:check": "ankhorage-prettier --check .",
+    "lint": "ankhorage-eslint . --max-warnings=0",
+    "lint:fix": "ankhorage-eslint . --fix --max-warnings=0",
+    "prepack": "bun run build",
+    "test": "bun test src",
+    "typecheck": "bun x tsc --noEmit -p tsconfig.json",
+    "version-packages": "ankhorage-changeset version",
+    "knip:check": "ankhorage-knip"
+  },
+  "dependencies": {
+    "@ankhorage/api": "^0.2.0"
+  },
+  "devDependencies": {
+    "@ankhorage/devtools": "^2.1.11",
+    "@ankhorage/doctor": "0.12.13",
+    "@ankhorage/paradox": "^0.2.28",
+    "@types/bun": "^1.4.2",
+    "@types/node": "^26.6.4",
+    "typescript": "^6.0.3"
+  },
+  "peerDependencies": {
+    "next": ">=16"
+  },
+  "peerDependenciesMeta": {
+    "next": {"optional": true}
+  },
+  "packageManager": "bun@1.4.2"
+}
