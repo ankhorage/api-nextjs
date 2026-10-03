@@ -1,6 +1,2 @@
-export { createNextJsApiRoute } from './features/route/createNextJsApiRoute.js';
-export type {
-  NextJsApiRoute,
-  NextJsApiRouteContext,
-  NextJsApiRouteParams,
-} from './types/nextjsApi.js';
+export { createNextJsApiHandler } from './features/route/createNextJsApiHandler.js';
+export type { NextJsApiHandler } from './types/nextjsApi.js';
