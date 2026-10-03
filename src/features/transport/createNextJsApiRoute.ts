@@ -1,7 +1,4 @@
-import {
-  createApiTransportHandler,
-  type ApiRuntime,
-} from "@ankhorage/api";
+import { createApiTransportHandler, type ApiRuntime } from "@ankhorage/api";
 
 import type {
   NextJsApiRouteHandler,
