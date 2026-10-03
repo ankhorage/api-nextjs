@@ -30,7 +30,7 @@ async function toApiRequestAsync(
 
   return {
     operationId: binding.operationId,
-    method: binding.method,
+    method: transport.request.method,
     params,
     query: readQuery(url.searchParams),
     headers: Object.fromEntries(transport.request.headers.entries()),
