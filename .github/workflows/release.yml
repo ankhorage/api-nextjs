@@ -7,9 +7,14 @@ permissions:
   contents: write
   id-token: write
 
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   release:
     runs-on: ubuntu-latest
+
     steps:
       - name: Create scoped release token
         id: release-token
@@ -20,32 +25,52 @@ jobs:
           owner: ankhorage
           repositories: ${{ github.event.repository.name }}
           permission-contents: write
-      - uses: actions/checkout@v4
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
           token: ${{ steps.release-token.outputs.token }}
-      - uses: oven-sh/setup-bun@v2
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
           bun-version: '1.4.2'
-      - uses: actions/setup-node@v4
+
+      - name: Setup Node for npm publishing
+        uses: actions/setup-node@v4
         with:
           node-version: '24'
           registry-url: https://registry.npmjs.org
-      - run: npm install -g npm@latest
-      - run: bun install
-      - run: bun run build
+
+      - name: Update npm
+        run: npm install -g npm@latest
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Build package
+        run: bun run build
+
       - name: Validate release contract
         run: BUN_INSTALL_CACHE_DIR="${RUNNER_TEMP}/doctor-cache" bunx @ankhorage/doctor@0.12.13 validate .
+
       - name: Version packages directly on main
         run: |
-          if [ -z "$(find .changeset -maxdepth 1 -type f -name '*.md' ! -name README.md -print -quit)" ]; then exit 0; fi
+          if [ -z "$(find .changeset -maxdepth 1 -type f -name '*.md' ! -name README.md -print -quit)" ]; then
+            exit 0
+          fi
           git fetch origin main
           git checkout -B main origin/main
           bun run version-packages
-          if git diff --quiet; then exit 0; fi
+          if git diff --quiet; then
+            exit 0
+          fi
           git config user.name "ankhorage-renovate-sync[bot]"
           git config user.email "ankhorage-renovate-sync[bot]@users.noreply.github.com"
           git add --all
           git commit -m "chore(release): version packages [skip ci]"
           git push origin HEAD:main
-      - run: bun run changeset -- publish
+
+      - name: Publish packages
+        run: bun run changeset -- publish
