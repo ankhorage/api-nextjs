@@ -37,6 +37,38 @@ const PROJECT_RUNTIME = createApiRuntime({
   },
 });
 
+const ACTION_RUNTIME = createApiRuntime({
+  definition: {
+    id: "actions",
+    origin: "internal",
+    protocol: "rest",
+    basePath: "/api",
+    endpoints: {
+      actions: {
+        id: "actions",
+        kind: "http",
+        operations: {
+          "dependency-graph": {
+            id: "dependency-graph",
+            endpointId: "actions",
+            protocol: "http",
+            intent: "action",
+            method: "POST",
+            path: "/dependency-graph",
+          },
+        },
+      },
+    },
+  },
+  handlers: {
+    "dependency-graph": (request) => ({
+      body: {
+        input: request.body,
+      },
+    }),
+  },
+});
+
 const EMPTY_RUNTIME = createApiRuntime({
   definition: {
     id: "empty",
@@ -61,6 +93,28 @@ describe("createNextJsApiRoute", () => {
     expect(await response.json()).toEqual({
       id: "one",
       tags: ["a", "b"],
+    });
+  });
+
+  test("returns HTTP 400 for malformed JSON bodies", async () => {
+    const handler = createNextJsApiRoute(
+      ACTION_RUNTIME,
+      "dependency-graph",
+    );
+    const response = await handler(
+      new Request("https://example.test/api/dependency-graph", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: "{bad",
+      }),
+    );
+
+    expect(response.status).toBe(400);
+    expect(await response.json()).toEqual({
+      error: {
+        code: "invalid_json",
+        operationId: "dependency-graph",
+      },
     });
   });
 
