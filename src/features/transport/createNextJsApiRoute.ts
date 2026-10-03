@@ -25,5 +25,9 @@ export function createNextJsApiRoute(
     Response
   >(runtime, adapter, binding);
 
-  return (request, context) => handler({ request, context });
+  return (request, context) =>
+    handler({
+      request,
+      ...(context === undefined ? {} : { context }),
+    });
 }
