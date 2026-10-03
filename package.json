@@ -67,6 +67,5 @@
     "@types/node": "^26.6.4",
     "typescript": "^6.0.3"
   },
-  "packageManager": "bun@1.4.2",
-  "private": true
+  "packageManager": "bun@1.4.2"
 }
