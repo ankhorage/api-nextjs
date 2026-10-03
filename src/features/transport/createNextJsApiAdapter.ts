@@ -6,6 +6,7 @@ import type {
 } from "@ankhorage/api";
 
 import type { NextJsApiTransportRequest } from "../../types/nextJs.js";
+import { InvalidJsonBodyError } from "./InvalidJsonBodyError.js";
 
 /*** Create the Next.js App Router transport mapper for the canonical Ankhorage API runtime. */
 export function createNextJsApiAdapter(): ApiTransportAdapter<
@@ -95,6 +96,6 @@ async function readBodyAsync(request: Request): Promise<unknown> {
   try {
     return JSON.parse(text) as unknown;
   } catch {
-    return text;
+    throw new InvalidJsonBodyError();
   }
 }
