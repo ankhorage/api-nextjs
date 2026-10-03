@@ -1,6 +1,6 @@
-import { createApiRuntime } from '@ankhorage/api';
+import { createApiRuntime } from "@ankhorage/api";
 
-import { createNextJsApiRoute } from '../../src/apiNextJs.js';
+import { createNextJsApiRoute } from "../../src/apiNextJs.js";
 
 /***
  * @title Basic Usage
@@ -13,29 +13,29 @@ import { createNextJsApiRoute } from '../../src/apiNextJs.js';
  */
 const runtime = createApiRuntime({
   definition: {
-    id: 'health-api',
-    origin: 'internal',
-    protocol: 'rest',
-    basePath: '/api',
+    id: "health-api",
+    origin: "internal",
+    protocol: "rest",
+    basePath: "/api",
     endpoints: {
       health: {
-        id: 'health',
-        kind: 'http',
+        id: "health",
+        kind: "http",
         operations: {
-          'health.read': {
-            id: 'health.read',
-            protocol: 'http',
-            intent: 'read',
-            method: 'GET',
-            path: '/health',
+          "health.read": {
+            id: "health.read",
+            protocol: "http",
+            intent: "read",
+            method: "GET",
+            path: "/health",
           },
         },
       },
     },
   },
   handlers: {
-    'health.read': () => ({ body: { ok: true } }),
+    "health.read": () => ({ body: { ok: true } }),
   },
 });
 
-export const GET = createNextJsApiRoute(runtime, 'health.read');
+export const GET = createNextJsApiRoute(runtime, "health.read");

@@ -1,4 +1,4 @@
-import { createApiAdapterCliProvider } from './createApiAdapterCliProvider.js';
+import { createApiAdapterCliProvider } from "./createApiAdapterCliProvider.js";
 
 const provider = createApiAdapterCliProvider();
 
