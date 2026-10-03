@@ -1,10 +1,9 @@
 import { describe, expect, it } from 'bun:test';
 import { createApi } from '@ankhorage/api';
-import type { InternalRestApiDefinition } from '@ankhorage/contracts';
 
 import { createNextJsApiRoute } from './apiNextjs.js';
 
-const definition: InternalRestApiDefinition = {
+const definition = {
   id: 'atlas',
   origin: 'internal',
   protocol: 'rest',
@@ -25,7 +24,7 @@ const definition: InternalRestApiDefinition = {
       },
     },
   },
-};
+} as const;
 
 describe('createNextJsApiRoute', () => {
   it('dispatches the dynamic action parameter and JSON body', async () => {
