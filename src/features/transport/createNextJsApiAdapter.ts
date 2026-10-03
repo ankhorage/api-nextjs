@@ -14,7 +14,8 @@ export function createNextJsApiAdapter(): ApiTransportAdapter<
 > {
   return {
     toApiRequestAsync,
-    fromApiResponseAsync: (response) => Promise.resolve(toWebResponse(response)),
+    fromApiResponseAsync: (response) =>
+      Promise.resolve(toWebResponse(response)),
   };
 }
 
@@ -77,7 +78,7 @@ function readQuery(
   return Object.fromEntries(
     names.map((name) => {
       const values = searchParams.getAll(name);
-      return [name, values.length === 1 ? values[0] ?? "" : values] as const;
+      return [name, values.length === 1 ? (values[0] ?? "") : values] as const;
     }),
   );
 }
