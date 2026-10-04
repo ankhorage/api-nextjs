@@ -1,0 +1,8 @@
+sequenceDiagram
+  participant participant_createApiTransportHandler as createApiTransportHandler
+  participant participant_createNextJsApiAdapter as createNextJsApiAdapter
+  participant participant_createNextJsApiRoute as createNextJsApiRoute
+  participant_createNextJsApiRoute->>participant_createNextJsApiAdapter: createNextJsApiAdapter()
+  participant_createNextJsApiAdapter-->>participant_createNextJsApiRoute: return
+  participant_createNextJsApiRoute->>participant_createApiTransportHandler: createApiTransportHandler()
+  participant_createApiTransportHandler-->>participant_createNextJsApiRoute: return

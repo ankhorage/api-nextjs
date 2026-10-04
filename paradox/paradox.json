@@ -1,0 +1,810 @@
+{
+  "packageName": "@ankhorage/api-nextjs",
+  "packageId": "@ankhorage/api-nextjs",
+  "description": "Next.js App Router transport adapter for the Ankhorage API runtime.",
+  "collaborators": null,
+  "donation": null,
+  "badges": [
+    {
+      "id": "license",
+      "label": "license",
+      "value": "MIT",
+      "color": "2563eb"
+    },
+    {
+      "id": "npm",
+      "label": "npm",
+      "value": "v0.1.0",
+      "color": "cb3837"
+    },
+    {
+      "id": "runtime",
+      "label": "runtime",
+      "value": "bun",
+      "color": "f59e0b"
+    },
+    {
+      "id": "typescript",
+      "label": "typescript",
+      "value": "strict",
+      "color": "2563eb"
+    },
+    {
+      "id": "eslint",
+      "label": "eslint",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "prettier",
+      "label": "prettier",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "build",
+      "label": "build",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "tests",
+      "label": "tests",
+      "value": "checked",
+      "color": "0a7f3f"
+    },
+    {
+      "id": "docs",
+      "label": "paradox",
+      "value": "canonical",
+      "color": "0a7f3f"
+    }
+  ],
+  "usage": {
+    "packageName": "@ankhorage/api-nextjs",
+    "command": "ankh api-nextjs --help"
+  },
+  "usageEntries": [
+    {
+      "area": "examples",
+      "title": "Basic Usage",
+      "description": "Create a framework-neutral API runtime and bind one operation to a Next.js App Router route\nhandler.",
+      "language": "ts",
+      "code": "const runtime = createApiRuntime({\n  definition: {\n    id: \"health-api\",\n    origin: \"internal\",\n    protocol: \"rest\",\n    basePath: \"/api\",\n    endpoints: {\n      health: {\n        id: \"health\",\n        kind: \"http\",\n        operations: {\n          \"health.read\": {\n            id: \"health.read\",\n            protocol: \"http\",\n            intent: \"read\",\n            method: \"GET\",\n            path: \"/health\",\n          },\n        },\n      },\n    },\n  },\n  handlers: {\n    \"health.read\": () => ({ body: { ok: true } }),\n  },\n});",
+      "sourcePath": "examples/basic-usage/index.ts",
+      "isReadme": true,
+      "see": [],
+      "security": []
+    }
+  ],
+  "exampleCount": 1,
+  "findings": [],
+  "config": null,
+  "entrypoints": [
+    "src/apiNextJs.ts"
+  ],
+  "modules": [
+    {
+      "path": "examples/basic-usage/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/apiNextJs.ts"
+      ],
+      "exports": [
+        "GET"
+      ]
+    },
+    {
+      "path": "package.json",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": []
+    },
+    {
+      "path": "paradox.config.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "default"
+      ]
+    },
+    {
+      "path": "src/apiNextJs.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/apiNextJs.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/apiNextJs.ts",
+      "isEntrypoint": true,
+      "dependencies": [],
+      "exports": [
+        "createNextJsApiAdapter",
+        "createNextJsApiRoute",
+        "NextJsApiRouteHandler",
+        "NextJsApiTransportRequest",
+        "NextJsRouteContext"
+      ]
+    },
+    {
+      "path": "src/cli/commands/routes.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "runRoutesCommandAsync"
+      ]
+    },
+    {
+      "path": "src/cli/createApiAdapterCliProvider.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/createApiAdapterCliProvider.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/cli/createApiAdapterCliProvider.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "package.json",
+        "src/cli/commands/routes.ts"
+      ],
+      "exports": [
+        "createApiAdapterCliProvider"
+      ]
+    },
+    {
+      "path": "src/cli/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/cli/createApiAdapterCliProvider.ts"
+      ],
+      "exports": [
+        "createApiAdapterCliProvider",
+        "default"
+      ]
+    },
+    {
+      "path": "src/features/transport/createNextJsApiAdapter.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/transport/InvalidJsonBodyError.ts",
+        "src/types/nextJs.ts"
+      ],
+      "exports": [
+        "createNextJsApiAdapter"
+      ]
+    },
+    {
+      "path": "src/features/transport/createNextJsApiRoute.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/transport/createNextJsApiRoute.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/features/transport/createNextJsApiRoute.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "src/features/transport/createNextJsApiAdapter.ts",
+        "src/features/transport/InvalidJsonBodyError.ts",
+        "src/types/nextJs.ts"
+      ],
+      "exports": [
+        "createNextJsApiRoute"
+      ]
+    },
+    {
+      "path": "src/features/transport/InvalidJsonBodyError.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "InvalidJsonBodyError"
+      ]
+    },
+    {
+      "path": "src/types/nextJs.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "NextJsApiRouteHandler",
+        "NextJsApiTransportRequest",
+        "NextJsRouteContext"
+      ]
+    }
+  ],
+  "exports": [
+    {
+      "name": "createNextJsApiAdapter",
+      "title": null,
+      "description": "Create the Next.js App Router transport mapper for the canonical Ankhorage API runtime.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/transport/createNextJsApiAdapter.ts",
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiAdapter.ts",
+        "line": 12,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/apiNextJs.ts"
+      ],
+      "relatedSymbols": [
+        "NextJsApiTransportRequest"
+      ],
+      "signatures": [
+        {
+          "label": "() => ApiTransportAdapter<NextJsApiTransportRequest, Response>",
+          "parameters": [],
+          "returnType": "ApiTransportAdapter<NextJsApiTransportRequest, Response>",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "createNextJsApiRoute",
+      "title": null,
+      "description": "Bind one runtime operation to a thin Next.js App Router route handler.",
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "function",
+      "modulePath": "src/features/transport/createNextJsApiRoute.ts",
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiRoute.ts",
+        "line": 11,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/apiNextJs.ts"
+      ],
+      "relatedSymbols": [
+        "NextJsApiRouteHandler"
+      ],
+      "signatures": [
+        {
+          "label": "(runtime: ApiRuntime, operationId: string) => NextJsApiRouteHandler",
+          "parameters": [
+            {
+              "name": "operationId",
+              "type": "string",
+              "required": true,
+              "description": null
+            },
+            {
+              "name": "runtime",
+              "type": "ApiRuntime",
+              "required": true,
+              "description": null
+            }
+          ],
+          "returnType": "NextJsApiRouteHandler",
+          "returnDescription": null
+        }
+      ],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NextJsApiRouteHandler",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "unknown",
+      "modulePath": "src/types/nextJs.ts",
+      "sourceLocation": {
+        "filePath": "src/types/nextJs.ts",
+        "line": 12,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/apiNextJs.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [],
+      "structuredRows": []
+    },
+    {
+      "name": "NextJsApiTransportRequest",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/nextJs.ts",
+      "sourceLocation": {
+        "filePath": "src/types/nextJs.ts",
+        "line": 7,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/apiNextJs.ts"
+      ],
+      "relatedSymbols": [
+        "NextJsRouteContext"
+      ],
+      "signatures": [],
+      "members": [
+        {
+          "name": "context",
+          "kind": "property",
+          "type": "NextJsRouteContext",
+          "required": false,
+          "description": null
+        },
+        {
+          "name": "request",
+          "kind": "property",
+          "type": "Request",
+          "required": true,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    },
+    {
+      "name": "NextJsRouteContext",
+      "title": null,
+      "description": null,
+      "isReadme": false,
+      "see": [],
+      "security": [],
+      "kind": "type",
+      "modulePath": "src/types/nextJs.ts",
+      "sourceLocation": {
+        "filePath": "src/types/nextJs.ts",
+        "line": 1,
+        "column": 1
+      },
+      "exportPaths": [
+        "src/apiNextJs.ts"
+      ],
+      "relatedSymbols": [],
+      "signatures": [],
+      "members": [
+        {
+          "name": "params",
+          "kind": "property",
+          "type": "Readonly<Record<string, string | readonly string[]>> | Promise<Readonly<Record<string, string | readonly string[]>>>",
+          "required": false,
+          "description": null
+        }
+      ],
+      "structuredRows": []
+    }
+  ],
+  "components": [],
+  "sourceFunctions": [
+    {
+      "name": "runRoutesCommandAsync",
+      "description": "Inspect the nextjs route projection for one portable internal REST API definition.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/commands/routes.ts",
+        "line": 8,
+        "column": 14
+      }
+    },
+    {
+      "name": "createApiAdapterCliProvider",
+      "description": "Create the Ankh provider for api-nextjs adapter inspection commands.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/cli/createApiAdapterCliProvider.ts",
+        "line": 7,
+        "column": 1
+      }
+    },
+    {
+      "name": "createNextJsApiAdapter",
+      "description": "Create the Next.js App Router transport mapper for the canonical Ankhorage API runtime.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiAdapter.ts",
+        "line": 12,
+        "column": 1
+      }
+    },
+    {
+      "name": "toApiRequestAsync",
+      "description": "Normalize one App Router request and route context into the framework-neutral API request.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiAdapter.ts",
+        "line": 24,
+        "column": 1
+      }
+    },
+    {
+      "name": "toWebResponse",
+      "description": "Convert one framework-neutral API response into a standard Web Response for Next.js.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiAdapter.ts",
+        "line": 43,
+        "column": 1
+      }
+    },
+    {
+      "name": "resolveParamsAsync",
+      "description": "Resolve synchronous or Promise-based Next.js App Router params to scalar API params.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiAdapter.ts",
+        "line": 61,
+        "column": 1
+      }
+    },
+    {
+      "name": "readQuery",
+      "description": "Preserve repeated query parameters as arrays while keeping scalar values compact.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiAdapter.ts",
+        "line": 75,
+        "column": 1
+      }
+    },
+    {
+      "name": "readBodyAsync",
+      "description": "Decode JSON/text request bodies while leaving methods without bodies undefined.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiAdapter.ts",
+        "line": 88,
+        "column": 1
+      }
+    },
+    {
+      "name": "createNextJsApiRoute",
+      "description": "Bind one runtime operation to a thin Next.js App Router route handler.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiRoute.ts",
+        "line": 11,
+        "column": 1
+      }
+    },
+    {
+      "name": "invalidJsonResponse",
+      "description": "Return the stable HTTP diagnostic for malformed JSON request bodies.",
+      "see": [],
+      "security": [],
+      "sourceLocation": {
+        "filePath": "src/features/transport/createNextJsApiRoute.ts",
+        "line": 42,
+        "column": 1
+      }
+    }
+  ],
+  "sequenceScenarios": [
+    {
+      "kind": "export",
+      "name": "createNextJsApiAdapter",
+      "sourcePath": "src/features/transport/createNextJsApiAdapter.ts",
+      "symbolName": "createNextJsApiAdapter",
+      "description": "Create the Next.js App Router transport mapper for the canonical Ankhorage API runtime.",
+      "isReadme": false
+    },
+    {
+      "kind": "export",
+      "name": "createNextJsApiRoute",
+      "sourcePath": "src/features/transport/createNextJsApiRoute.ts",
+      "symbolName": "createNextJsApiRoute",
+      "description": "Bind one runtime operation to a thin Next.js App Router route handler.",
+      "isReadme": false
+    }
+  ],
+  "graphs": {
+    "imports": [
+      {
+        "fromPath": "src/apiNextJs.test.ts",
+        "toPath": "src/apiNextJs.ts",
+        "sourcePath": "src/apiNextJs.test.ts"
+      },
+      {
+        "fromPath": "src/apiNextJs.ts",
+        "toPath": "src/features/transport/createNextJsApiAdapter.ts",
+        "sourcePath": "src/apiNextJs.ts"
+      },
+      {
+        "fromPath": "src/apiNextJs.ts",
+        "toPath": "src/features/transport/createNextJsApiRoute.ts",
+        "sourcePath": "src/apiNextJs.ts"
+      },
+      {
+        "fromPath": "src/apiNextJs.ts",
+        "toPath": "src/types/nextJs.ts",
+        "sourcePath": "src/apiNextJs.ts"
+      },
+      {
+        "fromPath": "examples/basic-usage/index.ts",
+        "toPath": "src/apiNextJs.ts",
+        "sourcePath": "examples/basic-usage/index.ts"
+      },
+      {
+        "fromPath": "src/cli/createApiAdapterCliProvider.test.ts",
+        "toPath": "src/cli/createApiAdapterCliProvider.ts",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.test.ts"
+      },
+      {
+        "fromPath": "src/cli/createApiAdapterCliProvider.ts",
+        "toPath": "package.json",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.ts"
+      },
+      {
+        "fromPath": "src/cli/createApiAdapterCliProvider.ts",
+        "toPath": "src/cli/commands/routes.ts",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.ts"
+      },
+      {
+        "fromPath": "src/cli/index.ts",
+        "toPath": "src/cli/createApiAdapterCliProvider.ts",
+        "sourcePath": "src/cli/index.ts"
+      },
+      {
+        "fromPath": "src/features/transport/createNextJsApiAdapter.ts",
+        "toPath": "src/types/nextJs.ts",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/transport/createNextJsApiAdapter.ts",
+        "toPath": "src/features/transport/InvalidJsonBodyError.ts",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromPath": "src/features/transport/createNextJsApiRoute.test.ts",
+        "toPath": "src/features/transport/createNextJsApiRoute.ts",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.test.ts"
+      },
+      {
+        "fromPath": "src/features/transport/createNextJsApiRoute.ts",
+        "toPath": "src/types/nextJs.ts",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      },
+      {
+        "fromPath": "src/features/transport/createNextJsApiRoute.ts",
+        "toPath": "src/features/transport/createNextJsApiAdapter.ts",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      },
+      {
+        "fromPath": "src/features/transport/createNextJsApiRoute.ts",
+        "toPath": "src/features/transport/InvalidJsonBodyError.ts",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      }
+    ],
+    "calls": [
+      {
+        "fromSymbol": "paradox.config.ts",
+        "toSymbol": "defineParadoxConfig",
+        "callExpression": "defineParadoxConfig",
+        "sourcePath": "paradox.config.ts"
+      },
+      {
+        "fromSymbol": "src/apiNextJs.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/apiNextJs.test.ts"
+      },
+      {
+        "fromSymbol": "src/apiNextJs.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/apiNextJs.test.ts"
+      },
+      {
+        "fromSymbol": "src/apiNextJs.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/apiNextJs.test.ts"
+      },
+      {
+        "fromSymbol": "examples/basic-usage/index.ts",
+        "toSymbol": "createApiRuntime",
+        "callExpression": "createApiRuntime",
+        "sourcePath": "examples/basic-usage/index.ts"
+      },
+      {
+        "fromSymbol": "examples/basic-usage/index.ts",
+        "toSymbol": "createNextJsApiRoute",
+        "callExpression": "createNextJsApiRoute",
+        "sourcePath": "examples/basic-usage/index.ts"
+      },
+      {
+        "fromSymbol": "src/cli/createApiAdapterCliProvider.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.test.ts"
+      },
+      {
+        "fromSymbol": "src/cli/createApiAdapterCliProvider.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.test.ts"
+      },
+      {
+        "fromSymbol": "src/cli/createApiAdapterCliProvider.test.ts",
+        "toSymbol": "createApiAdapterCliProvider",
+        "callExpression": "createApiAdapterCliProvider",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.test.ts"
+      },
+      {
+        "fromSymbol": "src/cli/createApiAdapterCliProvider.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.test.ts"
+      },
+      {
+        "fromSymbol": "src/cli/index.ts",
+        "toSymbol": "createApiAdapterCliProvider",
+        "callExpression": "createApiAdapterCliProvider",
+        "sourcePath": "src/cli/index.ts"
+      },
+      {
+        "fromSymbol": "runRoutesCommandAsync",
+        "toSymbol": "resolve",
+        "callExpression": "resolve",
+        "sourcePath": "src/cli/commands/routes.ts"
+      },
+      {
+        "fromSymbol": "runRoutesCommandAsync",
+        "toSymbol": "readFile",
+        "callExpression": "readFile",
+        "sourcePath": "src/cli/commands/routes.ts"
+      },
+      {
+        "fromSymbol": "runRoutesCommandAsync",
+        "toSymbol": "resolveApiOperationBindings",
+        "callExpression": "resolveApiOperationBindings",
+        "sourcePath": "src/cli/commands/routes.ts"
+      },
+      {
+        "fromSymbol": "fromApiResponseAsync",
+        "toSymbol": "toWebResponse",
+        "callExpression": "toWebResponse",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromSymbol": "toApiRequestAsync",
+        "toSymbol": "resolveParamsAsync",
+        "callExpression": "resolveParamsAsync",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromSymbol": "toApiRequestAsync",
+        "toSymbol": "readBodyAsync",
+        "callExpression": "readBodyAsync",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromSymbol": "toApiRequestAsync",
+        "toSymbol": "readQuery",
+        "callExpression": "readQuery",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromSymbol": "src/features/transport/createNextJsApiRoute.test.ts",
+        "toSymbol": "createApiRuntime",
+        "callExpression": "createApiRuntime",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/transport/createNextJsApiRoute.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/transport/createNextJsApiRoute.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/transport/createNextJsApiRoute.test.ts",
+        "toSymbol": "createNextJsApiRoute",
+        "callExpression": "createNextJsApiRoute",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/transport/createNextJsApiRoute.test.ts",
+        "toSymbol": "handler",
+        "callExpression": "handler",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.test.ts"
+      },
+      {
+        "fromSymbol": "src/features/transport/createNextJsApiRoute.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.test.ts"
+      },
+      {
+        "fromSymbol": "createNextJsApiRoute",
+        "toSymbol": "createNextJsApiAdapter",
+        "callExpression": "createNextJsApiAdapter",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      },
+      {
+        "fromSymbol": "createNextJsApiRoute",
+        "toSymbol": "createApiTransportHandler",
+        "callExpression": "createApiTransportHandler",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      },
+      {
+        "fromSymbol": "src/features/transport/createNextJsApiRoute.ts",
+        "toSymbol": "handler",
+        "callExpression": "handler",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      },
+      {
+        "fromSymbol": "src/features/transport/createNextJsApiRoute.ts",
+        "toSymbol": "invalidJsonResponse",
+        "callExpression": "invalidJsonResponse",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      }
+    ],
+    "typeReferences": [
+      {
+        "fromSymbol": "createNextJsApiAdapter",
+        "toType": "ApiTransportAdapter",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromSymbol": "createNextJsApiAdapter",
+        "toType": "NextJsApiTransportRequest",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromSymbol": "createNextJsApiAdapter",
+        "toType": "Response",
+        "sourcePath": "src/features/transport/createNextJsApiAdapter.ts"
+      },
+      {
+        "fromSymbol": "createNextJsApiRoute",
+        "toType": "ApiRuntime",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      },
+      {
+        "fromSymbol": "createNextJsApiRoute",
+        "toType": "NextJsApiRouteHandler",
+        "sourcePath": "src/features/transport/createNextJsApiRoute.ts"
+      },
+      {
+        "fromSymbol": "NextJsApiTransportRequest",
+        "toType": "NextJsRouteContext",
+        "sourcePath": "src/types/nextJs.ts"
+      },
+      {
+        "fromSymbol": "NextJsApiTransportRequest",
+        "toType": "Request",
+        "sourcePath": "src/types/nextJs.ts"
+      },
+      {
+        "fromSymbol": "NextJsRouteContext",
+        "toType": "Readonly",
+        "sourcePath": "src/types/nextJs.ts"
+      }
+    ],
+    "componentComposition": []
+  }
+}

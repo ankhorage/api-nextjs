@@ -1,0 +1,43 @@
+graph TD
+  package__ankhorage_api_nextjs["@ankhorage/api-nextjs"]
+  entrypoint_src_apiNextJs_ts["src/apiNextJs.ts"]
+  package__ankhorage_api_nextjs --> entrypoint_src_apiNextJs_ts
+  module_examples_basic_usage_index_ts["examples/basic-usage/index.ts"]
+  package__ankhorage_api_nextjs -.-> module_examples_basic_usage_index_ts
+  module_examples_basic_usage_index_ts --> module_src_apiNextJs_ts
+  module_package_json["package.json"]
+  package__ankhorage_api_nextjs -.-> module_package_json
+  module_paradox_config_ts["paradox.config.ts"]
+  package__ankhorage_api_nextjs -.-> module_paradox_config_ts
+  module_src_apiNextJs_test_ts["src/apiNextJs.test.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_apiNextJs_test_ts
+  module_src_apiNextJs_test_ts --> module_src_apiNextJs_ts
+  module_src_apiNextJs_ts["src/apiNextJs.ts"]
+  module_src_cli_commands_routes_ts["src/cli/commands/routes.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_cli_commands_routes_ts
+  module_src_cli_createApiAdapterCliProvider_test_ts["src/cli/createApiAdapterCliProvider.test.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_cli_createApiAdapterCliProvider_test_ts
+  module_src_cli_createApiAdapterCliProvider_test_ts --> module_src_cli_createApiAdapterCliProvider_ts
+  module_src_cli_createApiAdapterCliProvider_ts["src/cli/createApiAdapterCliProvider.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_cli_createApiAdapterCliProvider_ts
+  module_src_cli_createApiAdapterCliProvider_ts --> module_package_json
+  module_src_cli_createApiAdapterCliProvider_ts --> module_src_cli_commands_routes_ts
+  module_src_cli_index_ts["src/cli/index.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_cli_index_ts
+  module_src_cli_index_ts --> module_src_cli_createApiAdapterCliProvider_ts
+  module_src_features_transport_createNextJsApiAdapter_ts["src/features/transport/createNextJsApiAdapter.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_features_transport_createNextJsApiAdapter_ts
+  module_src_features_transport_createNextJsApiAdapter_ts --> module_src_features_transport_InvalidJsonBodyError_ts
+  module_src_features_transport_createNextJsApiAdapter_ts --> module_src_types_nextJs_ts
+  module_src_features_transport_createNextJsApiRoute_test_ts["src/features/transport/createNextJsApiRoute.test.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_features_transport_createNextJsApiRoute_test_ts
+  module_src_features_transport_createNextJsApiRoute_test_ts --> module_src_features_transport_createNextJsApiRoute_ts
+  module_src_features_transport_createNextJsApiRoute_ts["src/features/transport/createNextJsApiRoute.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_features_transport_createNextJsApiRoute_ts
+  module_src_features_transport_createNextJsApiRoute_ts --> module_src_features_transport_createNextJsApiAdapter_ts
+  module_src_features_transport_createNextJsApiRoute_ts --> module_src_features_transport_InvalidJsonBodyError_ts
+  module_src_features_transport_createNextJsApiRoute_ts --> module_src_types_nextJs_ts
+  module_src_features_transport_InvalidJsonBodyError_ts["src/features/transport/InvalidJsonBodyError.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_features_transport_InvalidJsonBodyError_ts
+  module_src_types_nextJs_ts["src/types/nextJs.ts"]
+  package__ankhorage_api_nextjs -.-> module_src_types_nextJs_ts

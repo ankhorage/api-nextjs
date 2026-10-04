@@ -1,0 +1,168 @@
+[
+  {
+    "name": "createNextJsApiAdapter",
+    "title": null,
+    "description": "Create the Next.js App Router transport mapper for the canonical Ankhorage API runtime.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/transport/createNextJsApiAdapter.ts",
+    "sourceLocation": {
+      "filePath": "src/features/transport/createNextJsApiAdapter.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/apiNextJs.ts"
+    ],
+    "relatedSymbols": [
+      "NextJsApiTransportRequest"
+    ],
+    "signatures": [
+      {
+        "label": "() => ApiTransportAdapter<NextJsApiTransportRequest, Response>",
+        "parameters": [],
+        "returnType": "ApiTransportAdapter<NextJsApiTransportRequest, Response>",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "createNextJsApiRoute",
+    "title": null,
+    "description": "Bind one runtime operation to a thin Next.js App Router route handler.",
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "function",
+    "modulePath": "src/features/transport/createNextJsApiRoute.ts",
+    "sourceLocation": {
+      "filePath": "src/features/transport/createNextJsApiRoute.ts",
+      "line": 11,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/apiNextJs.ts"
+    ],
+    "relatedSymbols": [
+      "NextJsApiRouteHandler"
+    ],
+    "signatures": [
+      {
+        "label": "(runtime: ApiRuntime, operationId: string) => NextJsApiRouteHandler",
+        "parameters": [
+          {
+            "name": "operationId",
+            "type": "string",
+            "required": true,
+            "description": null
+          },
+          {
+            "name": "runtime",
+            "type": "ApiRuntime",
+            "required": true,
+            "description": null
+          }
+        ],
+        "returnType": "NextJsApiRouteHandler",
+        "returnDescription": null
+      }
+    ],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "NextJsApiRouteHandler",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "unknown",
+    "modulePath": "src/types/nextJs.ts",
+    "sourceLocation": {
+      "filePath": "src/types/nextJs.ts",
+      "line": 12,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/apiNextJs.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [],
+    "structuredRows": []
+  },
+  {
+    "name": "NextJsApiTransportRequest",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/nextJs.ts",
+    "sourceLocation": {
+      "filePath": "src/types/nextJs.ts",
+      "line": 7,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/apiNextJs.ts"
+    ],
+    "relatedSymbols": [
+      "NextJsRouteContext"
+    ],
+    "signatures": [],
+    "members": [
+      {
+        "name": "context",
+        "kind": "property",
+        "type": "NextJsRouteContext",
+        "required": false,
+        "description": null
+      },
+      {
+        "name": "request",
+        "kind": "property",
+        "type": "Request",
+        "required": true,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  },
+  {
+    "name": "NextJsRouteContext",
+    "title": null,
+    "description": null,
+    "isReadme": false,
+    "see": [],
+    "security": [],
+    "kind": "type",
+    "modulePath": "src/types/nextJs.ts",
+    "sourceLocation": {
+      "filePath": "src/types/nextJs.ts",
+      "line": 1,
+      "column": 1
+    },
+    "exportPaths": [
+      "src/apiNextJs.ts"
+    ],
+    "relatedSymbols": [],
+    "signatures": [],
+    "members": [
+      {
+        "name": "params",
+        "kind": "property",
+        "type": "Readonly<Record<string, string | readonly string[]>> | Promise<Readonly<Record<string, string | readonly string[]>>>",
+        "required": false,
+        "description": null
+      }
+    ],
+    "structuredRows": []
+  }
+]

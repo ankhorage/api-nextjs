@@ -3,7 +3,64 @@
 
 # @ankhorage/api-nextjs
 
+![license: MIT](././paradox/badges/license.svg) ![npm: v0.1.0](././paradox/badges/npm.svg) ![runtime: bun](././paradox/badges/runtime.svg) ![typescript: strict](././paradox/badges/typescript.svg) ![eslint: checked](././paradox/badges/eslint.svg) ![prettier: checked](././paradox/badges/prettier.svg) ![build: checked](././paradox/badges/build.svg) ![tests: checked](././paradox/badges/tests.svg) ![paradox: canonical](././paradox/badges/docs.svg)
+
 Next.js App Router transport adapter for the Ankhorage API runtime.
 
-It maps App Router Web requests and route params onto `@ankhorage/api` and returns standard Web
-`Response` objects, keeping Next-specific route bindings outside application handlers.
+## Usage
+
+### CLI
+
+Ankhorage packages expose their command-line interface through `ankh`. Use `ankh --help` to discover available package commands, or run a package command with `--help` for package-specific usage.
+
+```zsh
+# Install the Ankhorage CLI
+bun add --global @ankhorage/ankh
+
+# Show usage information for api-nextjs
+ankh api-nextjs --help
+```
+
+### Basic Usage
+
+Create a framework-neutral API runtime and bind one operation to a Next.js App Router route
+handler.
+
+```ts
+const runtime = createApiRuntime({
+  definition: {
+    id: "health-api",
+    origin: "internal",
+    protocol: "rest",
+    basePath: "/api",
+    endpoints: {
+      health: {
+        id: "health",
+        kind: "http",
+        operations: {
+          "health.read": {
+            id: "health.read",
+            protocol: "http",
+            intent: "read",
+            method: "GET",
+            path: "/health",
+          },
+        },
+      },
+    },
+  },
+  handlers: {
+    "health.read": () => ({ body: { ok: true } }),
+  },
+});
+```
+
+## Generated documentation
+
+- [Interactive documentation app](././paradox/index.html)
+- [Public API reference](././paradox/exports.md)
+- [Component registry](././paradox/components.md)
+- [Architecture overview](././paradox/diagrams/architecture-overview.mmd)
+- [Module relationships](././paradox/diagrams/module-relationships.mmd)
+- [Export graph](././paradox/diagrams/export-graph.mmd)
+- [createNextJsApiRoute sequence](././paradox/diagrams/sequences/create-next-js-api-route.mmd)

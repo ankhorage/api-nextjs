@@ -1,0 +1,28 @@
+graph LR
+  module_examples_basic_usage_index_ts["examples/basic-usage/index.ts"]
+  module_package_json["package.json"]
+  module_paradox_config_ts["paradox.config.ts"]
+  module_src_apiNextJs_test_ts["src/apiNextJs.test.ts"]
+  module_src_apiNextJs_ts["src/apiNextJs.ts"]
+  module_src_cli_commands_routes_ts["src/cli/commands/routes.ts"]
+  module_src_cli_createApiAdapterCliProvider_test_ts["src/cli/createApiAdapterCliProvider.test.ts"]
+  module_src_cli_createApiAdapterCliProvider_ts["src/cli/createApiAdapterCliProvider.ts"]
+  module_src_cli_index_ts["src/cli/index.ts"]
+  module_src_features_transport_createNextJsApiAdapter_ts["src/features/transport/createNextJsApiAdapter.ts"]
+  module_src_features_transport_createNextJsApiRoute_test_ts["src/features/transport/createNextJsApiRoute.test.ts"]
+  module_src_features_transport_createNextJsApiRoute_ts["src/features/transport/createNextJsApiRoute.ts"]
+  module_src_features_transport_InvalidJsonBodyError_ts["src/features/transport/InvalidJsonBodyError.ts"]
+  module_src_types_nextJs_ts["src/types/nextJs.ts"]
+  export_createNextJsApiAdapter["createNextJsApiAdapter"]
+  module_src_features_transport_createNextJsApiAdapter_ts --> export_createNextJsApiAdapter
+  export_createNextJsApiAdapter -.-> export_NextJsApiTransportRequest
+  export_createNextJsApiRoute["createNextJsApiRoute"]
+  module_src_features_transport_createNextJsApiRoute_ts --> export_createNextJsApiRoute
+  export_createNextJsApiRoute -.-> export_NextJsApiRouteHandler
+  export_NextJsApiRouteHandler["NextJsApiRouteHandler"]
+  module_src_types_nextJs_ts --> export_NextJsApiRouteHandler
+  export_NextJsApiTransportRequest["NextJsApiTransportRequest"]
+  module_src_types_nextJs_ts --> export_NextJsApiTransportRequest
+  export_NextJsApiTransportRequest -.-> export_NextJsRouteContext
+  export_NextJsRouteContext["NextJsRouteContext"]
+  module_src_types_nextJs_ts --> export_NextJsRouteContext
