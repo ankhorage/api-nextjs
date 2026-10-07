@@ -4,6 +4,8 @@ graph LR
   module_paradox_config_ts["paradox.config.ts"]
   module_src_apiNextJs_test_ts["src/apiNextJs.test.ts"]
   module_src_apiNextJs_ts["src/apiNextJs.ts"]
+  module_src_capabilities_test_ts["src/capabilities.test.ts"]
+  module_src_capabilities_index_ts["src/capabilities/index.ts"]
   module_src_cli_commands_routes_ts["src/cli/commands/routes.ts"]
   module_src_cli_createApiAdapterCliProvider_test_ts["src/cli/createApiAdapterCliProvider.test.ts"]
   module_src_cli_createApiAdapterCliProvider_ts["src/cli/createApiAdapterCliProvider.ts"]
@@ -15,8 +17,13 @@ graph LR
   module_src_types_nextJs_ts["src/types/nextJs.ts"]
   module_examples_basic_usage_index_ts --> module_src_apiNextJs_ts
   module_src_apiNextJs_test_ts --> module_src_apiNextJs_ts
+  module_src_capabilities_test_ts --> module_package_json
+  module_src_capabilities_test_ts --> module_src_capabilities_index_ts
+  module_src_capabilities_test_ts --> module_src_cli_createApiAdapterCliProvider_ts
+  module_src_cli_createApiAdapterCliProvider_test_ts --> module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_test_ts --> module_src_cli_createApiAdapterCliProvider_ts
   module_src_cli_createApiAdapterCliProvider_ts --> module_package_json
+  module_src_cli_createApiAdapterCliProvider_ts --> module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_ts --> module_src_cli_commands_routes_ts
   module_src_cli_index_ts --> module_src_cli_createApiAdapterCliProvider_ts
   module_src_features_transport_createNextJsApiAdapter_ts --> module_src_features_transport_InvalidJsonBodyError_ts

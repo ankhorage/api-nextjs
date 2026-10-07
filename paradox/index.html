@@ -158,7 +158,7 @@
       <div class="summary">
         <div><strong>5</strong><span class="muted">public exports</span></div>
         <div><strong>0</strong><span class="muted">components</span></div>
-        <div><strong>14</strong><span class="muted">modules</span></div>
+        <div><strong>16</strong><span class="muted">modules</span></div>
         <div><strong>1</strong><span class="muted">entrypoints</span></div>
       </div>
       <h3>Entrypoints</h3>
@@ -234,20 +234,30 @@ handler.</p>
     <p class="muted">Configured entrypoint</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <code>createNextJsApiAdapter</code>, <code>createNextJsApiRoute</code>, <code>NextJsApiRouteHandler</code>, <code>NextJsApiTransportRequest</code>, <code>NextJsRouteContext</code></p>
+  </article><article class="item" data-search="src/capabilities.test.ts package.json src/capabilities/index.ts src/cli/createApiAdapterCliProvider.ts">
+    <h3>src/capabilities.test.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <code>package.json</code>, <code>src/capabilities/index.ts</code>, <code>src/cli/createApiAdapterCliProvider.ts</code></p>
+    <p><strong>Exports:</strong> <span class="empty">None</span></p>
+  </article><article class="item" data-search="src/capabilities/index.ts CAPABILITIES">
+    <h3>src/capabilities/index.ts</h3>
+    <p class="muted">Referenced module</p>
+    <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
+    <p><strong>Exports:</strong> <code>CAPABILITIES</code></p>
   </article><article class="item" data-search="src/cli/commands/routes.ts runRoutesCommandAsync">
     <h3>src/cli/commands/routes.ts</h3>
     <p class="muted">Referenced module</p>
     <p><strong>Dependencies:</strong> <span class="empty">None</span></p>
     <p><strong>Exports:</strong> <code>runRoutesCommandAsync</code></p>
-  </article><article class="item" data-search="src/cli/createApiAdapterCliProvider.test.ts src/cli/createApiAdapterCliProvider.ts">
+  </article><article class="item" data-search="src/cli/createApiAdapterCliProvider.test.ts src/capabilities/index.ts src/cli/createApiAdapterCliProvider.ts">
     <h3>src/cli/createApiAdapterCliProvider.test.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>src/cli/createApiAdapterCliProvider.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>src/capabilities/index.ts</code>, <code>src/cli/createApiAdapterCliProvider.ts</code></p>
     <p><strong>Exports:</strong> <span class="empty">None</span></p>
-  </article><article class="item" data-search="src/cli/createApiAdapterCliProvider.ts package.json src/cli/commands/routes.ts createApiAdapterCliProvider">
+  </article><article class="item" data-search="src/cli/createApiAdapterCliProvider.ts package.json src/capabilities/index.ts src/cli/commands/routes.ts createApiAdapterCliProvider">
     <h3>src/cli/createApiAdapterCliProvider.ts</h3>
     <p class="muted">Referenced module</p>
-    <p><strong>Dependencies:</strong> <code>package.json</code>, <code>src/cli/commands/routes.ts</code></p>
+    <p><strong>Dependencies:</strong> <code>package.json</code>, <code>src/capabilities/index.ts</code>, <code>src/cli/commands/routes.ts</code></p>
     <p><strong>Exports:</strong> <code>createApiAdapterCliProvider</code></p>
   </article><article class="item" data-search="src/cli/index.ts src/cli/createApiAdapterCliProvider.ts createApiAdapterCliProvider default">
     <h3>src/cli/index.ts</h3>
@@ -424,14 +434,23 @@ handler.</p>
   package__ankhorage_api_nextjs -.-&gt; module_src_apiNextJs_test_ts
   module_src_apiNextJs_test_ts --&gt; module_src_apiNextJs_ts
   module_src_apiNextJs_ts[&quot;src/apiNextJs.ts&quot;]
+  module_src_capabilities_test_ts[&quot;src/capabilities.test.ts&quot;]
+  package__ankhorage_api_nextjs -.-&gt; module_src_capabilities_test_ts
+  module_src_capabilities_test_ts --&gt; module_package_json
+  module_src_capabilities_test_ts --&gt; module_src_capabilities_index_ts
+  module_src_capabilities_test_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
+  package__ankhorage_api_nextjs -.-&gt; module_src_capabilities_index_ts
   module_src_cli_commands_routes_ts[&quot;src/cli/commands/routes.ts&quot;]
   package__ankhorage_api_nextjs -.-&gt; module_src_cli_commands_routes_ts
   module_src_cli_createApiAdapterCliProvider_test_ts[&quot;src/cli/createApiAdapterCliProvider.test.ts&quot;]
   package__ankhorage_api_nextjs -.-&gt; module_src_cli_createApiAdapterCliProvider_test_ts
+  module_src_cli_createApiAdapterCliProvider_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_test_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
   module_src_cli_createApiAdapterCliProvider_ts[&quot;src/cli/createApiAdapterCliProvider.ts&quot;]
   package__ankhorage_api_nextjs -.-&gt; module_src_cli_createApiAdapterCliProvider_ts
   module_src_cli_createApiAdapterCliProvider_ts --&gt; module_package_json
+  module_src_cli_createApiAdapterCliProvider_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_ts --&gt; module_src_cli_commands_routes_ts
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   package__ankhorage_api_nextjs -.-&gt; module_src_cli_index_ts
@@ -470,14 +489,23 @@ handler.</p>
   package__ankhorage_api_nextjs -.-&gt; module_src_apiNextJs_test_ts
   module_src_apiNextJs_test_ts --&gt; module_src_apiNextJs_ts
   module_src_apiNextJs_ts[&quot;src/apiNextJs.ts&quot;]
+  module_src_capabilities_test_ts[&quot;src/capabilities.test.ts&quot;]
+  package__ankhorage_api_nextjs -.-&gt; module_src_capabilities_test_ts
+  module_src_capabilities_test_ts --&gt; module_package_json
+  module_src_capabilities_test_ts --&gt; module_src_capabilities_index_ts
+  module_src_capabilities_test_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
+  package__ankhorage_api_nextjs -.-&gt; module_src_capabilities_index_ts
   module_src_cli_commands_routes_ts[&quot;src/cli/commands/routes.ts&quot;]
   package__ankhorage_api_nextjs -.-&gt; module_src_cli_commands_routes_ts
   module_src_cli_createApiAdapterCliProvider_test_ts[&quot;src/cli/createApiAdapterCliProvider.test.ts&quot;]
   package__ankhorage_api_nextjs -.-&gt; module_src_cli_createApiAdapterCliProvider_test_ts
+  module_src_cli_createApiAdapterCliProvider_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_test_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
   module_src_cli_createApiAdapterCliProvider_ts[&quot;src/cli/createApiAdapterCliProvider.ts&quot;]
   package__ankhorage_api_nextjs -.-&gt; module_src_cli_createApiAdapterCliProvider_ts
   module_src_cli_createApiAdapterCliProvider_ts --&gt; module_package_json
+  module_src_cli_createApiAdapterCliProvider_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_ts --&gt; module_src_cli_commands_routes_ts
   module_src_cli_index_ts[&quot;src/cli/index.ts&quot;]
   package__ankhorage_api_nextjs -.-&gt; module_src_cli_index_ts
@@ -509,6 +537,8 @@ handler.</p>
   module_paradox_config_ts[&quot;paradox.config.ts&quot;]
   module_src_apiNextJs_test_ts[&quot;src/apiNextJs.test.ts&quot;]
   module_src_apiNextJs_ts[&quot;src/apiNextJs.ts&quot;]
+  module_src_capabilities_test_ts[&quot;src/capabilities.test.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_commands_routes_ts[&quot;src/cli/commands/routes.ts&quot;]
   module_src_cli_createApiAdapterCliProvider_test_ts[&quot;src/cli/createApiAdapterCliProvider.test.ts&quot;]
   module_src_cli_createApiAdapterCliProvider_ts[&quot;src/cli/createApiAdapterCliProvider.ts&quot;]
@@ -520,8 +550,13 @@ handler.</p>
   module_src_types_nextJs_ts[&quot;src/types/nextJs.ts&quot;]
   module_examples_basic_usage_index_ts --&gt; module_src_apiNextJs_ts
   module_src_apiNextJs_test_ts --&gt; module_src_apiNextJs_ts
+  module_src_capabilities_test_ts --&gt; module_package_json
+  module_src_capabilities_test_ts --&gt; module_src_capabilities_index_ts
+  module_src_capabilities_test_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
+  module_src_cli_createApiAdapterCliProvider_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_test_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
   module_src_cli_createApiAdapterCliProvider_ts --&gt; module_package_json
+  module_src_cli_createApiAdapterCliProvider_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_ts --&gt; module_src_cli_commands_routes_ts
   module_src_cli_index_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
   module_src_features_transport_createNextJsApiAdapter_ts --&gt; module_src_features_transport_InvalidJsonBodyError_ts
@@ -539,6 +574,8 @@ handler.</p>
   module_paradox_config_ts[&quot;paradox.config.ts&quot;]
   module_src_apiNextJs_test_ts[&quot;src/apiNextJs.test.ts&quot;]
   module_src_apiNextJs_ts[&quot;src/apiNextJs.ts&quot;]
+  module_src_capabilities_test_ts[&quot;src/capabilities.test.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_commands_routes_ts[&quot;src/cli/commands/routes.ts&quot;]
   module_src_cli_createApiAdapterCliProvider_test_ts[&quot;src/cli/createApiAdapterCliProvider.test.ts&quot;]
   module_src_cli_createApiAdapterCliProvider_ts[&quot;src/cli/createApiAdapterCliProvider.ts&quot;]
@@ -550,8 +587,13 @@ handler.</p>
   module_src_types_nextJs_ts[&quot;src/types/nextJs.ts&quot;]
   module_examples_basic_usage_index_ts --&gt; module_src_apiNextJs_ts
   module_src_apiNextJs_test_ts --&gt; module_src_apiNextJs_ts
+  module_src_capabilities_test_ts --&gt; module_package_json
+  module_src_capabilities_test_ts --&gt; module_src_capabilities_index_ts
+  module_src_capabilities_test_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
+  module_src_cli_createApiAdapterCliProvider_test_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_test_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
   module_src_cli_createApiAdapterCliProvider_ts --&gt; module_package_json
+  module_src_cli_createApiAdapterCliProvider_ts --&gt; module_src_capabilities_index_ts
   module_src_cli_createApiAdapterCliProvider_ts --&gt; module_src_cli_commands_routes_ts
   module_src_cli_index_ts --&gt; module_src_cli_createApiAdapterCliProvider_ts
   module_src_features_transport_createNextJsApiAdapter_ts --&gt; module_src_features_transport_InvalidJsonBodyError_ts
@@ -571,6 +613,8 @@ handler.</p>
   module_paradox_config_ts[&quot;paradox.config.ts&quot;]
   module_src_apiNextJs_test_ts[&quot;src/apiNextJs.test.ts&quot;]
   module_src_apiNextJs_ts[&quot;src/apiNextJs.ts&quot;]
+  module_src_capabilities_test_ts[&quot;src/capabilities.test.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_commands_routes_ts[&quot;src/cli/commands/routes.ts&quot;]
   module_src_cli_createApiAdapterCliProvider_test_ts[&quot;src/cli/createApiAdapterCliProvider.test.ts&quot;]
   module_src_cli_createApiAdapterCliProvider_ts[&quot;src/cli/createApiAdapterCliProvider.ts&quot;]
@@ -602,6 +646,8 @@ handler.</p>
   module_paradox_config_ts[&quot;paradox.config.ts&quot;]
   module_src_apiNextJs_test_ts[&quot;src/apiNextJs.test.ts&quot;]
   module_src_apiNextJs_ts[&quot;src/apiNextJs.ts&quot;]
+  module_src_capabilities_test_ts[&quot;src/capabilities.test.ts&quot;]
+  module_src_capabilities_index_ts[&quot;src/capabilities/index.ts&quot;]
   module_src_cli_commands_routes_ts[&quot;src/cli/commands/routes.ts&quot;]
   module_src_cli_createApiAdapterCliProvider_test_ts[&quot;src/cli/createApiAdapterCliProvider.test.ts&quot;]
   module_src_cli_createApiAdapterCliProvider_ts[&quot;src/cli/createApiAdapterCliProvider.ts&quot;]
@@ -668,7 +714,7 @@ handler.</p>
       <h2>src/cli/createApiAdapterCliProvider.ts</h2>
       <article class="item" data-search="createApiAdapterCliProvider src/cli/createApiAdapterCliProvider.ts Create the Ankh provider for api-nextjs adapter inspection commands.">
     <h3>createApiAdapterCliProvider</h3>
-    <p class="muted"><code>src/cli/createApiAdapterCliProvider.ts:7:1</code></p>
+    <p class="muted"><code>src/cli/createApiAdapterCliProvider.ts:9:1</code></p>
     <p>Create the Ankh provider for api-nextjs adapter inspection commands.</p>
     
   </article>

@@ -1,6 +1,6 @@
 {
   "name": "@ankhorage/api-nextjs",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "type": "module",
   "description": "Next.js App Router transport adapter for the Ankhorage API runtime.",
   "license": "MIT",

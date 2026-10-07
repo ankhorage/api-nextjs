@@ -14,7 +14,7 @@
     {
       "id": "npm",
       "label": "npm",
-      "value": "v0.1.0",
+      "value": "v0.2.0",
       "color": "cb3837"
     },
     {
@@ -129,6 +129,24 @@
       ]
     },
     {
+      "path": "src/capabilities.test.ts",
+      "isEntrypoint": false,
+      "dependencies": [
+        "package.json",
+        "src/capabilities/index.ts",
+        "src/cli/createApiAdapterCliProvider.ts"
+      ],
+      "exports": []
+    },
+    {
+      "path": "src/capabilities/index.ts",
+      "isEntrypoint": false,
+      "dependencies": [],
+      "exports": [
+        "CAPABILITIES"
+      ]
+    },
+    {
       "path": "src/cli/commands/routes.ts",
       "isEntrypoint": false,
       "dependencies": [],
@@ -140,6 +158,7 @@
       "path": "src/cli/createApiAdapterCliProvider.test.ts",
       "isEntrypoint": false,
       "dependencies": [
+        "src/capabilities/index.ts",
         "src/cli/createApiAdapterCliProvider.ts"
       ],
       "exports": []
@@ -149,6 +168,7 @@
       "isEntrypoint": false,
       "dependencies": [
         "package.json",
+        "src/capabilities/index.ts",
         "src/cli/commands/routes.ts"
       ],
       "exports": [
@@ -404,7 +424,7 @@
       "security": [],
       "sourceLocation": {
         "filePath": "src/cli/createApiAdapterCliProvider.ts",
-        "line": 7,
+        "line": 9,
         "column": 1
       }
     },
@@ -538,9 +558,29 @@
         "sourcePath": "src/apiNextJs.ts"
       },
       {
+        "fromPath": "src/capabilities.test.ts",
+        "toPath": "package.json",
+        "sourcePath": "src/capabilities.test.ts"
+      },
+      {
+        "fromPath": "src/capabilities.test.ts",
+        "toPath": "src/capabilities/index.ts",
+        "sourcePath": "src/capabilities.test.ts"
+      },
+      {
+        "fromPath": "src/capabilities.test.ts",
+        "toPath": "src/cli/createApiAdapterCliProvider.ts",
+        "sourcePath": "src/capabilities.test.ts"
+      },
+      {
         "fromPath": "examples/basic-usage/index.ts",
         "toPath": "src/apiNextJs.ts",
         "sourcePath": "examples/basic-usage/index.ts"
+      },
+      {
+        "fromPath": "src/cli/createApiAdapterCliProvider.test.ts",
+        "toPath": "src/capabilities/index.ts",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.test.ts"
       },
       {
         "fromPath": "src/cli/createApiAdapterCliProvider.test.ts",
@@ -550,6 +590,11 @@
       {
         "fromPath": "src/cli/createApiAdapterCliProvider.ts",
         "toPath": "package.json",
+        "sourcePath": "src/cli/createApiAdapterCliProvider.ts"
+      },
+      {
+        "fromPath": "src/cli/createApiAdapterCliProvider.ts",
+        "toPath": "src/capabilities/index.ts",
         "sourcePath": "src/cli/createApiAdapterCliProvider.ts"
       },
       {
@@ -617,6 +662,30 @@
         "toSymbol": "expect",
         "callExpression": "expect",
         "sourcePath": "src/apiNextJs.test.ts"
+      },
+      {
+        "fromSymbol": "src/capabilities.test.ts",
+        "toSymbol": "describe",
+        "callExpression": "describe",
+        "sourcePath": "src/capabilities.test.ts"
+      },
+      {
+        "fromSymbol": "src/capabilities.test.ts",
+        "toSymbol": "test",
+        "callExpression": "test",
+        "sourcePath": "src/capabilities.test.ts"
+      },
+      {
+        "fromSymbol": "src/capabilities.test.ts",
+        "toSymbol": "expect",
+        "callExpression": "expect",
+        "sourcePath": "src/capabilities.test.ts"
+      },
+      {
+        "fromSymbol": "src/capabilities.test.ts",
+        "toSymbol": "createApiAdapterCliProvider",
+        "callExpression": "createApiAdapterCliProvider",
+        "sourcePath": "src/capabilities.test.ts"
       },
       {
         "fromSymbol": "examples/basic-usage/index.ts",
