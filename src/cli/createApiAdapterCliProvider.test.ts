@@ -1,5 +1,6 @@
 import { describe, expect, test } from "bun:test";
 
+import { CAPABILITIES } from "../capabilities/index.js";
 import { createApiAdapterCliProvider } from "./createApiAdapterCliProvider.js";
 
 describe("createApiAdapterCliProvider", () => {
@@ -7,7 +8,7 @@ describe("createApiAdapterCliProvider", () => {
     const provider = createApiAdapterCliProvider();
 
     expect(provider.category).toBe("api-nextjs");
-    expect(provider.capabilities).toEqual(["api-nextjs.routes"]);
+    expect(provider.capabilities).toBe(CAPABILITIES);
     expect(provider.commands).toEqual([
       expect.objectContaining({
         path: ["routes"],
