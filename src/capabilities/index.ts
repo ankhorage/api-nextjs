@@ -1,4 +1,4 @@
-import type { Capability } from "@ankhorage/contracts/capabilities";
+import type { Capability } from "@ankhorage/contracts/capability";
 
 /*** Publish the Next.js adapter-inspection capabilities available to Ankh consumers. */
 export const CAPABILITIES = [
