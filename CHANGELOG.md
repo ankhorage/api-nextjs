@@ -1,5 +1,11 @@
 # @ankhorage/api-nextjs
 
+## 0.2.1
+
+### Patch Changes
+
+- 74e832c: Migrate the published Next.js adapter capability catalog to the canonical Contracts 26 and Capability APIs.
+
 ## 0.2.0
 
 ### Minor Changes
