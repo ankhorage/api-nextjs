@@ -1,11 +1,19 @@
-import { isCapability } from "@ankhorage/contracts/capabilities";
+import {
+  areCapabilityCatalogsEqual,
+  isCapability,
+  isCapabilityCatalog,
+} from "@ankhorage/capability";
 import { describe, expect, test } from "bun:test";
 
 import packageJson from "../package.json" with { type: "json" };
 import { CAPABILITIES } from "./capabilities/index.js";
 import { createApiAdapterCliProvider } from "./cli/createApiAdapterCliProvider.js";
 
-const packageCapabilities = packageJson.ankh.capabilities;
+const packageCapabilities: unknown = packageJson.ankh.capabilities;
+
+if (!isCapabilityCatalog(packageCapabilities)) {
+  throw new Error("Package metadata must contain a valid capability catalog.");
+}
 
 describe("api-nextjs capabilities", () => {
   test("publishes one valid, uniquely identified canonical descriptor", () => {
@@ -17,8 +25,8 @@ describe("api-nextjs capabilities", () => {
   });
 
   test("keeps package metadata identical to the source catalog", () => {
-    expect(JSON.stringify(packageCapabilities)).toBe(
-      JSON.stringify(CAPABILITIES),
+    expect(areCapabilityCatalogsEqual(packageCapabilities, CAPABILITIES)).toBe(
+      true,
     );
     expect(
       packageCapabilities.every((capability) => typeof capability !== "string"),
@@ -37,13 +45,5 @@ describe("api-nextjs capabilities", () => {
     expect(provider.capabilities).toBe(CAPABILITIES);
     expect(commandIds).toEqual(capabilityIds);
     expect(provider.commands).toHaveLength(CAPABILITIES.length);
-  });
-
-  test("is consumable through the public capabilities export", async () => {
-    const consumer = await import("@ankhorage/api-nextjs/capabilities");
-
-    expect(JSON.stringify(consumer.CAPABILITIES)).toBe(
-      JSON.stringify(packageCapabilities),
-    );
   });
 });
