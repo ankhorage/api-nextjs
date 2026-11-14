@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "kind": "adapter",
+  "title": "Ankhorage API Next.js Adapter",
+  "summary": "Adapts the Ankhorage API runtime to Next.js App Router request, response, and route boundaries.",
+  "purpose": "Host portable Ankhorage APIs in Next.js without coupling the framework-neutral runtime to Next.js filesystem routing or runtime types.",
+  "domain": "Next.js API transport",
+  "responsibilities": [
+    "Translate Web Request and Response values at the Next.js transport boundary.",
+    "Create thin App Router bindings for portable API definitions.",
+    "Expose inspection of the resulting Next.js route projection."
+  ],
+  "boundaries": [
+    "Does not own API operation dispatch or handler semantics.",
+    "Does not own portable API contracts.",
+    "Does not add Next.js filesystem or runtime dependencies to @ankhorage/api."
+  ],
+  "audience": [
+    "Next.js applications hosting APIs defined through the Ankhorage API runtime."
+  ],
+  "useCases": [
+    "Bind a portable API definition to Next.js App Router handlers.",
+    "Translate a Next.js request through the canonical API runtime.",
+    "Inspect the projected Next.js routes for an API definition."
+  ],
+  "architecture": {
+    "role": "Inbound Next.js transport adapter over @ankhorage/api.",
+    "invariants": [
+      "API dispatch remains owned by @ankhorage/api.",
+      "Portable definitions remain owned by @ankhorage/contracts.",
+      "Framework translation stays at the adapter edge."
+    ]
+  }
+}
